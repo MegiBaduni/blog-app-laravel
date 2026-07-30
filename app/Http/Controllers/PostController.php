@@ -27,6 +27,19 @@ public function index()
         Post::create($validated);
 
         return redirect('/hello');
+        public function store(Request $request)
+{
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'body' => 'required|string',
+    ]);
+
+    $validated['user_id'] = auth()->id();
+
+    $post = Post::create($validated);
+
+    return response()->json($post, 201);
+}
     }
 
     public function destroy($id)
