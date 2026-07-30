@@ -55,3 +55,9 @@ EXPOSE 10000
 
 # Komanda kryesore
 CMD ["/usr/bin/entrypoint.sh"]
+# Kopjo skriptin e hyrjes në kontejner
+COPY entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/entrypoint.sh
+
+# Vendos entrypoint për të nisur shërbimet
+ENTRYPOINT ["entrypoint.sh"]
