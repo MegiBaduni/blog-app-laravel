@@ -1,4 +1,5 @@
-FROM php:8.2-fpm
+# Ndrysho nga php:8.2-... në php:8.4-...
+FROM php:8.4-fpm
 
 # Instalo varësitë e sistemit dhe shtesat e nevojshme për PostgreSQL
 RUN apt-get update && apt-get install -y \
